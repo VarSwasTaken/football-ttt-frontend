@@ -1,5 +1,5 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import {DataUsage, Game, GameGuide, Home, NotFound} from './pages/index';
+import {Game, GameInfo, Home, NotFound, Teams} from './pages/index';
 import './App.css';
 
 function App() {
@@ -7,8 +7,8 @@ function App() {
         <BrowserRouter>
             <Routes>
                 <Route index element={<Home />} />
-                <Route path="game-guide" element={<GameGuide />} />
-                <Route path="data-usage" element={<DataUsage />} />
+                <Route path="game-info" element={<GameInfo />} />
+                <Route path="teams" element={<Teams />} />
                 <Route path="game" element={<Game />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>

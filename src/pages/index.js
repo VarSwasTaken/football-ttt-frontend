@@ -1,7 +1,7 @@
-import DataUsage from './DataUsage';
 import Game from './Game';
-import GameGuide from './GameGuide';
+import GameInfo from './GameInfo';
 import Home from './Home';
 import NotFound from './NotFound';
+import Teams from './Teams';
 
-export {Home, GameGuide, Game, DataUsage, NotFound};
+export {Game, GameInfo, Home, NotFound, Teams};

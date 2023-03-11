@@ -10,23 +10,23 @@
     --clr-chamoisee: #8f7e4f;
 
     /* font sizes */
-    --fnt-h1: 5.938rem;
+    --fnt-h1: 7.938rem;
     --fnt-h2: 3.938rem;
-    /* --fnt-h2: 1.938rem; */
     --fnt-h3: 1.5rem;
     --fnt-h4: 1.188rem;
     --fnt-h5: 0.938rem;
     --fnt-h6: 0.75rem;
 
     /* font weights */
+    --fnt-bold: 700;
     --fnt-semiBold: 600;
     --fnt-medium: 500;
     --fnt-regular: 400;
 }
 
-body,
-h1,
-h2 {
+/* section blocks styling */
+
+body {
     margin: 0;
 }
 
@@ -47,16 +47,23 @@ body,
 }
 
 header {
-    grid-row: 1 / 4;
+    grid-row: 1 / 3;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     background-color: var(--clr-jet);
-    padding: 0.5rem 0;
 }
 
 .content {
-    grid-row: span 16;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-row: span 17;
+    color: var(--clr-jet);
+    margin: 2rem 0;
+    padding: 0 2rem;
+    gap: 2rem;
+    overflow-y: auto;
 }
 
 footer {
@@ -68,7 +75,80 @@ footer {
     width: 100%;
     text-align: center;
     font-weight: var(--fnt-regular);
+}
+
+/* elements styling */
+
+ul {
+    margin: 0;
+}
+
+.content .textSection {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+
+header img {
+    height: 80px;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--clr-jet);
+}
+
+/* fonts styling */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    font-weight: var(--fnt-regular);
+}
+
+h1 {
+    font-size: var(--fnt-h1);
+    font-family: 'Bebas Neue';
+}
+
+h2 {
+    font-size: var(--fnt-h2);
+}
+
+h3 {
+    font-size: var(--fnt-h3);
+}
+
+h4 {
+    font-size: var(--fnt-h4);
+}
+
+h5 {
+    font-size: var(--fnt-h5);
+}
+
+h6 {
     font-size: var(--fnt-h6);
+}
+
+b {
+    font-weight: var(--fnt-semiBold);
 }
 
 a:visited,
@@ -84,7 +164,7 @@ a.textLink {
     background-size: 0 2px, auto;
     background-repeat: no-repeat;
     background-position: center bottom;
-    transition: all 0.2s ease-out;
+    transition: all 0.4s ease-out;
 }
 
 a.textLink:hover {
@@ -100,8 +180,44 @@ header h2 {
     max-width: 100px;
 }
 
-header img {
-    height: 80px;
+.content h1 {
+    line-height: 7rem;
+}
+
+.content h3 {
+    font-weight: var(--fnt-bold);
+    position: relative;
+    transition: ease-in 1s;
+    cursor: default;
+    width: fit-content;
+}
+
+.content h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 0rem;
+    bottom: 0;
+    border-bottom: 4px solid var(--clr-jet);
+    transition: 0.4s ease-in width;
+}
+
+.content h3:hover::after {
+    width: 15rem;
+}
+
+.content h4 {
+    font-weight: var(--fnt-semiBold);
+}
+
+.content a {
+    color: var(--clr-jet);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+}
+
+.content.justify-center {
+    justify-content: center;
 }
 
 footer a.textLink {
@@ -119,13 +235,16 @@ footer a.textLink:hover {
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
+    header {
+        grid-row: 1 / 4;
+    }
     header h2 {
         font-size: var(--fnt-h4);
         max-width: none;
     }
-
-    footer {
-        font-size: var(--fnt-h5);
+    .content {
+        padding: 0 5rem;
+        grid-row: span 16;
     }
 }
 
